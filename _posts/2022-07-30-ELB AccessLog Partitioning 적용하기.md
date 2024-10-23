@@ -1,6 +1,6 @@
 ---
-title: ELB AccessLog Partitioning 적용하기
-date: 2022-07-30 00:00:00 +09:00
+title: "[Data Structure] unordered_map 사용법"
+date: 2024-10-23 00:00:00 +09:00
 categories: [AWS, ELB]
 tags: [aws, elb, alb, accesslog, athena, partitoning]
 image: 
@@ -12,34 +12,58 @@ image:
 
 
 
-## 구성 배경
+## unordered_map
 
-고객사 ALB 로그를 분석할 때, elb-log-anlayzer Tool, AWS Athena를 병행하여 사용하고 있었습니다.
-
-- [elb-log-analyzer](https://github.com/ozantunca/elb-log-analyzer)
-
-  간단한 로그 분석에는 elb-log-analyzer를 사용했으며 분석이 필요한 로그를 일괄적으로 다운받기 위해 Cyberduck과 같은 FTP Client을 사용했습니다.
-
-  
-
-- AWS Athena
-
-  좀 더 자세한 로그 분석이 필요한 경우 AWS Athena를 사용했습니다.  
-  로드밸런서 로그는 AccessLog 설정을 활성화하고 S3 버킷을 지정하면 자동으로 년월일 단위로 로그가 분리되어 저장됩니다.  
-  로그가 저장된 버킷에서 쿼리를 하는 경우 모든 로그를 스캔하기 때문에 많은 비용이 발생하게 되므로, 이를 방지하기 위해 Athena 로그 결과를 저장하는 별도의 버킷을 생성하고 분석이 필요한 로그를 ALB 로그 버킷에서 복사한 후 분석하는 방법을 사용했습니다.
-  
-  <br>
-
-하지만 고객사로부터 로그 분석 요청이 지속적으로 증가하고 있었고, 매번 로그를 복사한 후 분석하는 방법이 비효율적이므로 ALB 로그를 파티셔닝하기로 결정했습니다.
+- map보다 더 빠른 탐색을 하기 위한 자료구조다.
+- unordered_map은 해쉬테이블로 구현한 자료구조로 탐색 시간복잡도는 O(1)이다.
+- map은 Binary Search Tree로 탐색 시간 복잡도는 O(log n)이다.
+- unordered_map을 사용하기 위해서는 #include<unordered_map>을 선언해야 한다.
+- unordered_map은 중복된 데이터를 허용하지 않고 map에 비해 데이터가 많을 시 월등히 좋은 성능을 보인다. 하지만 key가 유사한 데이터가 많을 시 해시 충돌로 인해 성능이 떨어질 수도 있다.
 
 <br>
 
-## 고려 사항
-
-파티셔닝은 파티션 프로젝션 통한 자동 맵핑 방식과 수동 맵핑 방식이 있습니다.  
-ALB 로그의 경우 기본적으로 자동 맵핑 형식에 맞지 않게 S3에 저장되어 파티셔닝된 Athena 테이블을 다시 만들고, 파티션을 수동으로 추가하는 방식을 사용했습니다.
+## 함수
 
 <br>
+
+- empty()
+  맵이 비어있는지 확인하는 함수.
+  if unordered_map is empty, then return 1 else 0
+
+- size()
+  맵의 크기를 확인하는 함수
+  return size_type ( unsigned int)
+
+- operator[]
+  맵에서 key를 통해 value를 지정하는 operator
+  map_name[key]=value
+
+- find(key)
+  맵에서 key에 해당하는 원소를 찾는 함수
+  if key is contained, then iterator else map_name.end()
+
+- count(key)
+  맵에서 key에 해당하는 원소의 갯수를 반환하는 함수
+  if key is contained, return 1 else 0
+
+- insert({key, value})
+  맵에 pair<key, value>를 추가하는 함수
+  if key is contained, then not insert
+
+- erase(key)
+  맵에서 key에 해당하는 원소를 제거하는 함수
+  erase 하는 바업: 특정 position의 pair 삭제, key를 통해 삭제, 범위 삭제
+
+- clear()
+  맵을 초기화 하는 함수
+
+- operator=
+  대입 연산자 가능
+
+index로 접근할 수 없고 iterator로 접근해야 한다.
+시작은 begin(), 끝은 end()
+key: iter->first, value: iter->second
+반복문 사용시 auto 활용 or pair<key_type, value_type> 사용
 
 ## 구성 내용
 
