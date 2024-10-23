@@ -26,92 +26,65 @@ image:
 
 <br>
 
-- empty()
+- **empty()** <br>
   맵이 비어있는지 확인하는 함수.
   if unordered_map is empty, then return 1 else 0
 
-- size()
+- **size()** <br>
   맵의 크기를 확인하는 함수
   return size_type ( unsigned int)
 
-- operator[]
+- **operator[]**  <br>
   맵에서 key를 통해 value를 지정하는 operator
   map_name[key]=value
 
-- find(key)
+- **find(key)**  <br>
   맵에서 key에 해당하는 원소를 찾는 함수
   if key is contained, then iterator else map_name.end()
 
-- count(key)
+- **count(key)** <br>
   맵에서 key에 해당하는 원소의 갯수를 반환하는 함수
   if key is contained, return 1 else 0
 
-- insert({key, value})
-  맵에 pair<key, value>를 추가하는 함수
+- **insert({key, value})** <br>
+  맵에 pair<key, value>를  추가하는 함수
   if key is contained, then not insert
 
-- erase(key)
+- **erase(key)** <br>
   맵에서 key에 해당하는 원소를 제거하는 함수
   erase 하는 바업: 특정 position의 pair 삭제, key를 통해 삭제, 범위 삭제
 
-- clear()
+- **clear()** <br>
   맵을 초기화 하는 함수
 
-- operator=
+- **operator=** <br>
   대입 연산자 가능
 
-index로 접근할 수 없고 iterator로 접근해야 한다.
-시작은 begin(), 끝은 end()
-key: iter->first, value: iter->second
-반복문 사용시 auto 활용 or pair<key_type, value_type> 사용
+index로 접근할 수 없고 iterator로 접근해야 한다. <br>
+시작은 begin(), 끝은 end() <br>
+key: iter->first, value: iter->second <br>
+반복문 사용시 auto 활용 or pair<key_type, value_type> 사용 <br>
 
-## 구성 내용
+## 예제
 
-- 파티션된 테이블 생성
 
-  ```sql
-  CREATE EXTERNAL TABLE IF NOT EXISTS alb_logs (
-              type string,
-              time string,
-              elb string,
-              client_ip string,
-              client_port int,
-              target_ip string,
-              target_port int,
-              request_processing_time double,
-              target_processing_time double,
-              response_processing_time double,
-              elb_status_code string,
-              target_status_code string,
-              received_bytes bigint,
-              sent_bytes bigint,
-              request_verb string,
-              request_url string,
-              request_proto string,
-              user_agent string,
-              ssl_cipher string,
-              ssl_protocol string,
-              target_group_arn string,
-              trace_id string,
-              domain_name string,
-              chosen_cert_arn string,
-              matched_rule_priority string,
-              request_creation_time string,
-              actions_executed string,
-              redirect_url string,
-              lambda_error_reason string,
-              target_port_list string,
-              target_status_code_list string,
-              classification string,
-              classification_reason string
-              )
-  						**PARTITIONED BY (`year` string, `month` string, `day` string)**
-              ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.RegexSerDe'
-              WITH SERDEPROPERTIES (
-              'serialization.format' = '1',
-              'input.regex' = 
-  		        '([^ ]*) ([^ ]*) ([^ ]*) ([^ ]*):([0-9]*) ([^ ]*)[:-]([0-9]*) ([-.0-9]*) ([-.0-9]*) ([-.0-9]*) (|[-0-9]*) (-|[-0-9]*) ([-0-9]*) ([-0-9]*) \"([^ ]*) (.*) (- |[^ ]*)\" \"([^\"]*)\" ([A-Z0-9-_]+) ([A-Za-z0-9.-]*) ([^ ]*) \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" ([-.0-9]*) ([^ ]*) \"([^\"]*)\" \"([^\"]*)\" \"([^ ]*)\" \"([^\s]+?)\" \"([^\s]+)\" \"([^ ]*)\" \"([^ ]*)\"')
-              LOCATION 's3://test-alb-access-logs-s3/AWSLogs/111111111111/elasticloadbalancing/ap-northeast-2/'
+  ```
+    unordered_map<string, int> nameToIndex;
+    for(int i=0; i<names.size(); ++i>){
+      nameToIndex[names[i]]=i;
+    }
+
+    vector<vector<int>> table(names.size(), vector<int>(names.size(),0)); 
+    //nxn 이차원 배열을 0으로 초기화
+
+    string A="muzi";
+    string B="frodo";
+
+    int indexA=nameToIndex[A];
+    int indexB=nameToIndex[B];
+
+    table[indexA][indexB]++;
+
   ```
 
 - 파티션 추가 및 확인
