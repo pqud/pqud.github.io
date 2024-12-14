@@ -22,8 +22,8 @@ title: 메모장                      # the main title
 
 tagline: 벼르   # it will display as the sub-title
 
-subdescription:                         # used by seo meta and the atom feed
- 기록용 블로그입니다.
+subdescription: "기록용 블로그입니다."                       # used by seo meta and the atom feed
+
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: 'https://pqud.github.io'
