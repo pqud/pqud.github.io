@@ -22,7 +22,7 @@ title: 메모장                      # the main title
 
 tagline: 벼르   # it will display as the sub-title
 
-description: >                        # used by seo meta and the atom feed
+subdescription:                         # used by seo meta and the atom feed
  기록용 블로그입니다.
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'

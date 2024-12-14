@@ -761,6 +761,7 @@ $btn-mb: 0.5rem;
 
   .site-subtitle {
     font-size: 95%;
+    font-weight: 700;
     color: var(--sidebar-muted-color);
     word-spacing: 1px;
     -webkit-user-select: none;
@@ -770,6 +771,7 @@ $btn-mb: 0.5rem;
   }
 
   .site-subdescription {
+    color:rgba(0, 0, 0, 0.99);
     margin-top: 0.5rem;
     -webkit-user-select: none;
     -moz-user-select: none;
