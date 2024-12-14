@@ -12,8 +12,10 @@ class SidebarUtil {
   static toggle() {
     if (SidebarUtil.isExpanded === false) {
       $body.attr(ATTR_DISPLAY, ''); //사이드바 열기
+      console.log("Sidebar open."); // 디버깅 로그
     } else {
-      $body.removeAttr(ATTR_DISPLAY); //사이드바 닫기기
+      $body.removeAttr(ATTR_DISPLAY); //사이드바 닫기
+      console.log("Sidebar closed."); // 디버깅 로그
     }
 
     SidebarUtil.isExpanded = !SidebarUtil.isExpanded;
