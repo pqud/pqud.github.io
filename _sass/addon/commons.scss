@@ -717,19 +717,6 @@ $btn-mb: 0.5rem;
     @extend %sidebar-links;
   }
 
-  #sidebar-trigger{
-    position:absolute;
-    top:1rem;
-    right:1rem;
-  }
-
-  .closebtn{
-    background:rgba(134, 133, 133, 0.99);
-    border:none;
-    font-size:1.5rem;
-    cursor:pointer;
-  }
-
   #avatar {
     display: block;
     width: 7rem;
@@ -979,7 +966,7 @@ $btn-mb: 0.5rem;
 
 #sidebar-trigger,
 #search-trigger {
-  display: none;
+  display: flex;
 }
 
 #search-wrapper {
