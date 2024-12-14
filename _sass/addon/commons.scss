@@ -906,6 +906,10 @@ $btn-mb: 0.5rem;
   } /* .sidebar-bottom */
 } /* #sidebar */
 
+body[sidebar-display] #sidebar {
+  transform: translateX(250px); /* 사이드바를 화면 안으로 밀어냄 */
+}
+
 @media (hover: hover) {
   #sidebar ul > li:last-child::after {
     transition: top 0.5s ease;
