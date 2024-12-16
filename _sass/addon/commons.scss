@@ -952,7 +952,7 @@ body[sidebar-display] #sidebar {
   #breadcrumb {
     font-size: 1rem;
     color: gray;
-    padding-left: 0.5rem;
+    padding-left: 1rem;
 
     a:hover {
       @extend %link-hover;
@@ -962,7 +962,7 @@ body[sidebar-display] #sidebar {
       &:not(:last-child) {
         &::after {
           content: '›';
-          padding: 0 0.3rem;
+          padding: 0 1rem;
         }
       }
     }
@@ -983,7 +983,7 @@ body[sidebar-display] #sidebar {
   border-radius: 1rem;
   border: 1px solid var(--search-wrapper-border-color);
   background: var(--main-bg);
-  padding: 0 0.5rem;
+  padding: 0 1rem;
 
   i {
     z-index: 2;
