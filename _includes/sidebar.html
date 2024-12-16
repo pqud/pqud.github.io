@@ -2,9 +2,7 @@
 
 <div id="sidebar" class="d-flex flex-column align-items-end">
 
-  <div id="sidebar-trigger">
-    <button class="toggle" aria-label="Close Sidebar">❌</button>
-  </div>
+  
   <div class="profile-wrapper">
     <a href="{{ '/' | relative_url }}" id="avatar" class="rounded-circle">
       {% if site.avatar != empty and site.avatar %}
@@ -116,3 +114,6 @@
   <!-- .sidebar-bottom -->
 </div>
 <!-- #sidebar -->
+<div id="sidebar-trigger">
+  <button class="toggle" aria-label="Close Sidebar">❌</button>
+</div>

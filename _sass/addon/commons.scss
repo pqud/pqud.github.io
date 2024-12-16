@@ -911,6 +911,11 @@ body[sidebar-display] #sidebar {
   transform: translateX(-250px); /* 사이드바를 화면 안으로 밀어냄 */
 }
 
+body[sidebar-display] #sidebar-trigger {
+  transform: translateX(250px); /* 사이드바가 열리면서 버튼도 이동 */
+}
+
+
 @media (hover: hover) {
   #sidebar ul > li:last-child::after {
     transition: top 0.5s ease;
@@ -969,7 +974,15 @@ body[sidebar-display] #sidebar {
   }
 } /* #topbar */
 
-#sidebar-trigger,
+#sidebar-trigger{
+  display: flex;
+  top: 1rem; /* 버튼의 상단 위치 */
+  left: 0;
+  transform: translateX(-250px); /* 사이드바와 동일한 초기 위치 */
+  transition: transform 0.3s ease-in-out; /* 버튼도 부드럽게 이동 */
+  z-index: 950; /* 사이드바보다 위에 표시 */
+}
+
 #search-trigger {
   display: flex;
 }
