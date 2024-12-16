@@ -942,10 +942,13 @@ body[sidebar-display] #sidebar {
   height: $topbar-height;
   background-color: var(--topbar-bg);
   padding: 0.5rem 1rem; /* 전체 여백 추가 (상하/좌우) */
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* 시각적 분리 */
 }
 
 #topbar {
+  display: flex; /* 플렉스 레이아웃 */
+  align-items: center; /* 수직 가운데 정렬 */
+  justify-content: space-between; /* 양쪽 정렬 */
+  gap: 1rem; /* 내부 요소 간 여백 */
 
   /* icons */
   i {
