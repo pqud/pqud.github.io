@@ -962,7 +962,7 @@ body[sidebar-display] #sidebar {
       &:not(:last-child) {
         &::after {
           content: '›';
-          padding: 0 1rem;
+          padding: 1 1rem;
         }
       }
     }
@@ -983,7 +983,7 @@ body[sidebar-display] #sidebar {
   border-radius: 1rem;
   border: 1px solid var(--search-wrapper-border-color);
   background: var(--main-bg);
-  padding: 0 1rem;
+  padding: 1 1rem;
 
   i {
     z-index: 2;
@@ -1005,7 +1005,7 @@ body[sidebar-display] #sidebar {
   background: center;
   border: 0;
   border-radius: 0;
-  padding: 0.18rem 0.3rem;
+  padding: 1rem 1rem;
   color: var(--text-color);
   height: auto;
 
@@ -1033,7 +1033,7 @@ body[sidebar-display] #sidebar {
 }
 
 #search-hints {
-  padding: 0 1rem;
+  padding: 1 1rem;
 
   h4 {
     margin-bottom: 1.5rem;
@@ -1045,7 +1045,7 @@ body[sidebar-display] #sidebar {
     font-size: 1rem;
     background: var(--search-tag-bg);
     border: none;
-    padding: 0.5rem;
+    padding: 1rem;
     margin: 0 1.25rem 1rem 0;
 
     &::before {
