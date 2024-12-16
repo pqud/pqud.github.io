@@ -1563,7 +1563,7 @@ body[sidebar-display] #sidebar {
 
   #search-wrapper {
     margin-right: calc(
-      #{$main-content-max-width} * 0.25 - #{$search-max-width} - 0.75rem
+      #{$main-content-max-width} * 0.75 - #{$search-max-width} - 0.75rem
     );
   }
 
