@@ -969,7 +969,12 @@ body[sidebar-display] #sidebar {
   }
 } /* #topbar */
 
-#sidebar-trigger,
+#sidebar-trigger{
+  display: flex;
+  position: absolute;
+  right:-100px;
+
+}
 #search-trigger {
   display: flex;
 }
