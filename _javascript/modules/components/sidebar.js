@@ -24,5 +24,5 @@ class SidebarUtil {
 
 export function sidebarExpand() {
   $('#sidebar-trigger').on('click', SidebarUtil.toggle); //사이드바 열기닫기 트리거
-  $('#mask').on('click', SidebarUtil.toggle); //마스크 클릭시 사이드바 닫기
+  // $('#mask').on('click', SidebarUtil.toggle); //마스크 클릭시 사이드바 닫기
 }
