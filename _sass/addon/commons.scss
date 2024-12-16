@@ -947,11 +947,6 @@ body[sidebar-display] #sidebar {
 
 #topbar {
 
-  display: flex; /* 플렉스 레이아웃 */
-  align-items: center; /* 수직 가운데 정렬 */
-  justify-content: space-between; /* 양쪽 정렬 */
-  gap: 1rem; /* 내부 요소 간 여백 */
-
   /* icons */
   i {
     color: #999999;
