@@ -169,6 +169,7 @@ jekyll-archives:
     category: /categories/:name/
 
 
+
 jekyll_compose:
   default_front_matter:
     posts:
@@ -181,3 +182,4 @@ jekyll_compose:
       pin: false
       math: true
       mermaid: true
+
